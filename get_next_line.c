@@ -6,7 +6,7 @@
 /*   By: hrha <hrha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:58:10 by hrha              #+#    #+#             */
-/*   Updated: 2022/04/01 21:41:33 by hrha             ###   ########seoul.kr  */
+/*   Updated: 2022/04/01 22:01:08 by hrha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*split_str(char *str)
 	char	*tail;
 
 	i = 0;	
-	while (str[i] != "\n")
+	while (str[i] != '\n')
 		i++;
 	j = ft_strlen(str) - i - 1;
 	head = (char *)malloc(sizeof(char) * (i + 2));

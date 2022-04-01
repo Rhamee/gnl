@@ -6,7 +6,7 @@
 /*   By: hrha <hrha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:57:58 by hrha              #+#    #+#             */
-/*   Updated: 2022/04/01 21:41:40 by hrha             ###   ########seoul.kr  */
+/*   Updated: 2022/04/01 22:01:21 by hrha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@
 char	*get_next_line(int fd);
 char	*get_str(int fd, char *str);
 char	*split_str(char *str);
-char	*ft_get_remain_str(char *str);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int	check_nl(char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char const *s2);
 
 #endif
