@@ -6,7 +6,7 @@
 /*   By: hrha <hrha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:58:18 by hrha              #+#    #+#             */
-/*   Updated: 2022/03/29 18:58:18 by hrha             ###   ########.fr       */
+/*   Updated: 2022/04/01 21:41:41 by hrha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
@@ -66,8 +68,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*str;
 
-	if (!s1 || !s2)
-		return (NULL);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (i + j + 1));
@@ -75,5 +75,23 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(str, s1, i + 1);
 	ft_strlcat(str, s2, i + j + 1);
+	if (s1)
+		free(s1);
 	return (str);
+}
+
+int	check_nl(char *str)
+{
+	int	i;
+
+	i = 0;
+	if	(!str)
+		return (0);
+	while 	(str[i])
+	{
+		if (str[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
 }
