@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrha <hrha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 18:58:10 by hrha              #+#    #+#             */
-/*   Updated: 2022/04/09 21:54:22 by hrha             ###   ########seoul.kr  */
+/*   Created: 2022/04/09 21:49:11 by hrha              #+#    #+#             */
+/*   Updated: 2022/04/09 22:04:54 by hrha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
 	char			*str;
-	static char		*backup;
+	static char		*backup[OPEN_MAX];
 
 	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
-	backup = get_backup(fd, backup);
-	if (!backup)
+	backup[fd] = get_backup(fd, backup[fd]);
+	if (!backup[fd])
 		return (NULL);
-	str = split_str(backup);
-	backup = get_remain(backup);
+	str = split_str(backup[fd]);
+	backup[fd] = get_remain(backup[fd]);
 	return (str);
 }
 
